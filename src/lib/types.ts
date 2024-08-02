@@ -13,3 +13,21 @@ export const postDataInclude = {
 export type PostData = Prisma.PostGetPayload<{
   include: typeof postDataInclude
 }>
+
+export const userDataSelect = {
+  id: true,
+  username: true,
+  displayName: true,
+  avatarUrl: true,
+
+} satisfies Prisma.UserSelect;
+
+export interface PostsPage {
+  posts: PostData[];
+  nextCursor: string | null,
+}
+
+export interface FollowerInfo {
+  followers: number;
+  isFollowedByUser: boolean;
+}
